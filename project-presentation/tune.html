@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>NLP Text Classifier</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<nav class="nav-bar fixed-top ">
+        <div><h4 class="heading-1">Applied Machine Learning and Life Cycle</h4></div>
+        <hr>
+      
+        <div><h4 class="heading-2">Natural Language Processing</h4></div>
+        <div class="shadow">
+                <ul class="list-inline">
+                <li class="list-inline-item"><a href="problem.html"><h6 >Problem Framing</h6></a></li>
+                <li class="list-inline-item"><a href="solution.html"><h6>Solution</h6></a></li>
+                <li class="list-inline-item"><a href="classification1.html"><h6>Text Classification</h6></a></li>
+                <li class="list-inline-item"><a href="results.html"><h6>Results</h6></a></li>
+                <li class="list-inline-item"><a href="tune.html"><h6>Tune Hyperparameter</h6></a></li>
+                <li class="list-inline-item"><a href="conclusion.html"><h6>Conclusion</h6></a></li>
+              </ul>
+        </div>
+    </nav>
+
+<body>
+<!--
+    <nav class="nav-bar"><h4 class="heading-1">Machine Learning Life Cycle</h4></nav>
+    <hr/>
+
+    <div><h4 class="heading-2">Natural Language Processing</h4></div>
+    <div class="shadow">
+       
+              
+              
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="problem.html"><h6 >Problem Framing</h6></a></li>
+        <li class="list-inline-item"><a href="solution.html"><h6>Solution</h6></a></li>
+        <li class="list-inline-item"><a href="classification.html"><h6>Text Classification</h6></a></li>
+      </ul>
+    </div>
+-->
+    <div class="container">
+        
+        
+        
+        <div class="row content-row">  
+                <div class="col-4 menu-col"></div>        
+                <div class="col-8 content-col">
+                    
+                    <h5>Step 6: Tune Hyperparameters</h5>
+                    <p>We can tune hyperparameters using  Grid Search CV for different algorithms</p>
+                    <h5>Ensemble Models:</h5>
+                    <ul class="list-1">
+                    <li><strong>Random Forest:</strong> Tune the number of estimators</li>
+                    <li><strong>K-nn: </strong>Consider tuning the number of k</li>
+                    <li><strong>Bagging classifiers: </strong>To achieve good results we should tune  the base_estimators</li> 
+                    <li><strong>Boosting classifiers:</strong> For  optimal   results we should tune n_estimators </li>
+                    </ul>
+                    <h5>Deep Learning Models</h5>
+                    <ul class="list-1">
+                    <li><strong>Number of layers in the model:</strong> We must be careful in choosing this value. Too many layers will allow the model to learn too much information about the training data, causing overfitting. Too few layers can limit the model’s learning ability, causing underfitting. For text classification datasets, models with two layers performed well. </li>
+                    <li><strong>Number of units per layer:</strong> The units in a layer must hold the information for the transformation that a layer performs. For the first layer, this is driven by the number of features. In subsequent layers, the number of units depends on the choice of expanding or contracting the representation from the previous layer. It is recommended  minimize the information loss between layers. </li>
+                    <li><strong>Dropout rate: </strong>Dropout layers are used in the model for regularization. They define the fraction of input to drop as a precaution for overfitting. Recommended range: 0.2–0.5.</li>
+                    <li><strong>Learning rate:</strong> This is the rate at which the neural network weights change between iterations. A large learning rate may cause large swings in the weights, and we may never find their optimal values. A low learning rate is good, but the model will take more iterations to converge. It is a good idea to start low, say at 1e-4. If the training is very slow, increase this value. If your model is not learning, try decreasing learning rate.</li>
+                    There are couple of additional hyperparameters we tuned that are specific to our model:
+                    <li><strong>Kernel size: </strong>The size of the convolution window. Recommended values: 3 or 5.</li>
+                    <li><strong>Embedding dimensions:</strong> The number of dimensions we want to use to represent word embeddings—i.e., the size of each word vector. Recommended values: 50–300. In our experiments, we used GloVe embeddings with 100 dimensions with a pre- trained embedding layer.</li>
+                </ul>
+                </div>
+                
+      
+          </div>
+          
+        </div>
+
+
+
+
+
+   <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

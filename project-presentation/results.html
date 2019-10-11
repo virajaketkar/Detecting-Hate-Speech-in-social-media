@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>NLP Text Classifier</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+<nav class="nav-bar fixed-top ">
+        <div><h4 class="heading-1">Applied Machine Learning and Life Cycle</h4></div>
+        <hr>
+      
+        <div><h4 class="heading-2">Natural Language Processing</h4></div>
+        <div class="shadow">
+                <ul class="list-inline">
+                <li class="list-inline-item"><a href="problem.html"><h6 >Problem Framing</h6></a></li>
+                <li class="list-inline-item"><a href="solution.html"><h6>Solution</h6></a></li>
+                <li class="list-inline-item"><a href="classification1.html"><h6>Text Classification</h6></a></li>
+                <li class="list-inline-item"><a href="results.html"><h6>Results</h6></a></li>
+                <li class="list-inline-item"><a href="tune.html"><h6>Tune Hyperparameter</h6></a></li>
+                <li class="list-inline-item"><a href="conclusion.html"><h6>Conclusion</h6></a></li>
+            </ul>
+        </div>
+    </nav>
+
+<body>
+<!--
+    <nav class="nav-bar"><h4 class="heading-1">Machine Learning Life Cycle</h4></nav>
+    <hr/>
+
+    <div><h4 class="heading-2">Natural Language Processing</h4></div>
+    <div class="shadow">
+       
+              
+              
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="problem.html"><h6 >Problem Framing</h6></a></li>
+        <li class="list-inline-item"><a href="solution.html"><h6>Solution</h6></a></li>
+        <li class="list-inline-item"><a href="classification.html"><h6>Text Classification</h6></a></li>
+      </ul>
+    </div>
+    -->
+    <div class="row content-row">  
+            <div class="col-1 menu-col"></div>        
+            <div class="col-10 content-col1">
+                        <h4 style="margin-left:120px;">Results</h4>
+                        <div>
+                                <p style="margin-left:120px;">Results of  differenet base models on imbalanced dataset.</p>
+
+                                <table class="table table-bordered results-table1">
+                                        <thead style="text-align: center; margin-top:2px; line-height: 10px; vertical-align: center">
+                                                <tr>
+                                                    <th rowspan="2">Classifier</th>
+                                                    <th colspan="6">Without SMOTE</th> 
+                                                </tr>     
+                                                <tr>
+                                                    
+                                                   <td></td>
+                                                    <td><i>Acc</i></td>        
+                                                </tr>
+                                            </thead>
+                                    <tbody style="text-align: center; margin-top:2px; line-height: 10px;">
+                                         <tr>
+                                             <td style="padding-left:20px;">NB</td>
+                                             <td  style="padding-left:20px;"><pre >                                           
+                                                                  <strong>Prc       Rec        F1     support</strong>
+    
+    
+                                                             0      0.84       1.00    0.91      10301
+
+                                                             1      0.98       0.07    0.13       2091
+
+                                                        
+                                                      micro avg     0.84       0.84    0.84      12392
+
+                                                      macro avg     0.91       0.54    0.52      12392
+
+                                                   weighted avg     0.86       0.84    0.78      12392
+                                                        </pre>
+                                         </td>
+                                         <td style="padding-top:70px;">84.32</td>
+                                    </tr>
+                                    <tr>
+                                            <td style="padding-left:20px;">LSVC</td>
+                                            <td  style="padding-left:20px;"><pre >                                           
+                                                                 <strong>Prc       Rec        F1     support</strong>
+   
+   
+                                                            0      0.84       1.00    0.91      10301
+
+                                                            1      0.98       0.07    0.13       2091
+
+                                                       
+                                                     micro avg     0.84       0.84    0.84      12392
+
+                                                     macro avg     0.91       0.54    0.52      12392
+
+                                                  weighted avg     0.86       0.84    0.78      12392
+                                                       </pre>
+                                        </td>
+                                        <td style="padding-top:70px;">84.87</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="padding-left:20px;">LR</td>
+                                        <td  style="padding-left:20px;"><pre >                                           
+                                                             <strong>Prc       Rec        F1     support</strong>
+
+
+                                                        0       0.95      0.97      0.96     10301
+
+                                                        1       0.83      0.75      0.79      2091
+                                                  
+                                                micro avg       0.93      0.93      0.93     12392
+
+                                                macro avg       0.89      0.86      0.87     12392
+
+                                             weighted avg       0.93      0.93      0.93     12392
+                                                  
+                                                   </pre>
+                                    </td>
+                                    <td style="padding-top:70px;">93.10</td>
+                               </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <p style="margin-left:120px;">Results of  Deep Learning models on balanced dataset.</p>
+                        
+                            <table class="table table-bordered results-table1">
+                                <thead style="text-align: center; margin-top:2px; line-height: 10px; vertical-align: center">
+                                        <tr>
+                                                <th rowspan="3">Classifier</th>
+                                                <th colspan="6">With SMOTE</th> 
+                                         </tr>
+                                         <tr>
+                                                <th colspan="2">3epoch</th>
+                                                <th colspan="2">10 epoch</th>
+                                         </tr> 
+                                         <tr>
+                                                <th>Time</th>
+                                                <th>Acc</th>
+                                                <th>Time</th>
+                                                <th>Acc</th>
+                                         </tr> 
+                                </thead>
+                                <tbody style="text-align: center; margin-top:2px; line-height: 10px;">
+                                    <tr>
+                                        <td><pre>
+                                                LSTM
+
+                                            vocab= 20000
+
+                                            memory units=100
+
+                                            Drop-out rate= 0.2
+                                            </pre>
+                                                </td>
+                                        <td style="padding-top:70px;">17s</td>
+                                        <td style="padding-top:70px;">0.99</td>
+                                        <td style="padding-top:70px;">17s</td>
+                                        <td style="padding-top:70px;">0.99</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <pre>
+                                                    CNN
+
+                                                    pool-size=4
+                                                    
+                                            </pre>
+                                        </td>
+                                        <td style="padding-top:70px;">14s</td>
+                                        <td style="padding-top:70px;">0.99</td>
+                                        <td style="padding-top:70px;">10s</td>
+                                        <td style="padding-top:70px;">0.98</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <pre>
+
+                                                Glove
+
+                                                Embedding vector size=100
+
+                                            </pre>
+                                        
+                                        </td>
+                                        <td style="padding-top:70px;">6s</td>
+                                        <td style="padding-top:70px;">0.95</td>
+                                        <td style="padding-top:70px;">5s</td>
+                                        <td style="padding-top:70px;">0.85</td>
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div>
+                                <p style="margin-left:120px;">Results of various base and Ensemble Classifiers with SMOTE  on test dataset.
+                                    </p>
+                            <table class="table table-bordered results-table1">
+                                    <thead style="text-align: center; margin-top:2px; line-height: 10px; vertical-align: center">
+                                            <tr>
+                                                <th rowspan="2">Classifier</th>
+                                                <th colspan="6">With SMOTE</th> 
+                                            </tr>     
+                                            <tr>
+                                                
+                                               <td></td>
+                                                <td><i>Acc</i></td>        
+                                            </tr>
+                                        </thead>
+                                <tbody style="text-align: center; margin-top:2px; line-height: 10px;">
+                                     <tr>
+                                         <td style="padding-left:20px;">clf1(NB)</td>
+                                         <td  style="padding-left:20px;"><pre >                                           
+                                                              <strong>Prc       Rec        F1     support</strong>
+
+
+                                                      0       0.95      0.97      0.96      4105
+                                                      
+                                                      1       0.84      0.74      0.78       852
+
+                                     
+                                              micro avg       0.93      0.93      0.93      4957
+
+                                              macro avg       0.89      0.85      0.87      4957
+
+                                           weighted avg       0.93      0.93      0.93      4957</pre>
+                                     </td>
+                                     <td style="padding-top:70px;">92.97</td>
+                                </tr>
+                                <tr>
+                                        <td style="padding-left:20px;">clf2(k-nn)</td>
+                                        <td  style="padding-left:20px;"><pre >                                           
+                                                             <strong>Prc       Rec        F1     support</strong>
+
+
+                                                      0       1.00      0.55      0.71      4105
+
+                                                      1       0.32      1.00      0.48       852
+
+                       
+                                              micro avg       0.63      0.63      0.63      4957
+
+                                              macro avg       0.66      0.77      0.59      4957
+                          
+                                           weighted avg       0.88      0.63      0.67      4957
+                                                                                                </pre>
+                                        </td>
+                                        <td style="padding-top:70px;">62.73</td>
+                                </tr>
+                                <tr>
+                                        <td style="padding-left:20px;">clf3(DT)</td>
+                                        <td  style="padding-left:20px;"><pre >                                           
+                                                             <strong>Prc       Rec        F1     support</strong>
+
+
+                                                       0       0.98      0.93      0.96      4104
+                                                             
+                                                       1       0.74      0.91      0.81       853
+                                                  
+                                                    
+                                               micro avg       0.93      0.93      0.93      4957
+
+                                               macro avg       0.86      0.92      0.88      4957
+
+                                            weighted avg       0.94      0.93      0.93      4957
+                                                  
+                                                                                                </pre>
+                                        </td>
+                                        <td style="padding-top:70px;">92.79</td>
+                                </tr>
+                                <tr>
+                                        <td style="padding-left:20px;">eclf1 (RF)
+                                                </td>
+                                        <td  style="padding-left:20px;"><pre >                                           
+                                                             <strong>Prc       Rec        F1     support</strong>
+
+
+                                                       0       0.95      0.95      0.95      4104
+
+                                                       1       0.74      0.74      0.74       853
+
+                                                  
+                                               micro avg       0.91      0.91      0.91      4957
+
+                                               macro avg       0.85      0.84      0.84      4957
+
+                                            weighted avg       0.91      0.91      0.91      4957
+                                                  
+                                                  
+                                                                                                </pre>
+                                        </td>
+                                        <td style="padding-top:70px;">91.16</td>
+                                </tr>
+                                <tr>
+                                        <td style="padding-left:20px;">eclf2 (Bagging)</td>
+                                    <td  style="padding-left:20px;"><pre >                                           
+                                                         <strong>Prc       Rec        F1     support</strong>
+
+
+                                                   0       0.99      0.93      0.96      4104
+
+                                                   1       0.73      0.95      0.82       853
+
+                                              
+                                            micro avg       0.93      0.93      0.93      4957
+
+                                            macro avg       0.86      0.94      0.89      4957
+
+                                         weighted avg       0.94      0.93      0.93      4957
+                                              
+                                              
+                                              
+                                                                                            </pre>
+                                    </td>
+                                    <td style="padding-top:70px;">93.04</td>
+
+                                </tr>
+
+                                <tr>
+                                        <td style="padding-left:20px;">eclf3 (Boosting)</td>
+                                    <td  style="padding-left:20px;"><pre >                                           
+                                                         <strong>Prc       Rec        F1     support</strong>
+
+
+                                                  0       0.98      0.92      0.95      4104
+
+                                                  1       0.71      0.93      0.81       853
+                                              
+                                           micro avg       0.92      0.92      0.92      4957
+
+                                           macro avg       0.85      0.93      0.88      4957
+
+                                        weighted avg       0.94      0.92      0.93      4957
+                                              
+                                              
+                                              
+                                              
+                                                                                            </pre>
+                                    </td>
+                                    <td style="padding-top:70px;">92.25</td>
+
+                                </tr>
+                                <tr>
+                                    <td >eclf4 (Voting)</td>
+                                    <td>Avg 82.45</td>
+                                    <td>Avg 94.38</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        
+                </div>
+                <div class="col-1 menu-col"></div> 
+             
+      
+          </div>
+          
+        </div>
+
+
+
+
+
+   <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>
